@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centralized Resource Repository</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <script>
+        function toggleDetails(id) {
+            var details = document.getElementById(id);
+            if (details.style.display === "none" || details.style.display === "") {
+                details.style.display = "block";
+            } else {
+                details.style.display = "none";
+            }
+        }
+
+        function searchCourses() {
+            var input = document.getElementById('search-input').value.toLowerCase();
+            var cards = document.getElementsByClassName('course-card');
+
+            for (var i = 0; i < cards.length; i++) {
+                var courseName = cards[i].getAttribute('data-course').toLowerCase();
+                if (courseName.includes(input)) {
+                    cards[i].style.display = "block";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+</head>
+<body style="background-color: #f0f0f0; color: #333;">
+    <!-- Navbar -->
+    <nav style="background-color: #4A90E2; padding: 10px;">
+        <div style="color: white; font-size: 24px;">Centralized Resource Repository</div>
+        <ul style="list-style-type: none; display: flex; justify-content: space-around; color: white;">
+            <li><a href="#home" style="color: white;">Home</a></li>
+            <li><a href="#courses" style="color: white;">Courses</a></li>
+            <li><a href="#more" style="color: white;">More</a></li>
+        </ul>
+    </nav>
+
+    <!-- Search Bar -->
+    <div style="padding: 20px;">
+        <input type="text" id="search-input" placeholder="Search courses...." oninput="searchCourses()" style="width: 100%; padding: 10px; border-radius: 5px;">
+    </div>
+
+    <!-- Courses Section -->
+    <div style="max-width: 800px; margin: auto; padding: 20px;">
+        <h2 style="text-align: center; font-size: 24px;">Courses</h2>
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+            <div class="course-card" data-course="Maths" style="background: #fff; border: 1px solid #4A90E2; padding: 20px; border-radius: 10px; text-align: center;">
+                <a href="#maths"><img src="math.jpg" alt="Maths" style="width: 100%; height: auto; border-radius: 5px;"></a>
+                <div>Maths</div>
+            </div>
+            <div class="course-card" data-course="Physics" style="background: #fff; border: 1px solid #4A90E2; padding: 20px; border-radius: 10px; text-align: center;">
+                <a href="#physics"><img src="phy.avif" alt="Physics" style="width: 100%; height: auto; border-radius: 5px;"></a>
+                <div>Physics</div>
+            </div>
+            <div class="course-card" data-course="Chemistry" style="background: #fff; border: 1px solid #4A90E2; padding: 20px; border-radius: 10px; text-align: center;">
+                <a href="#chemistry"><img src="chem.jpg" alt="Chemistry" style="width: 100%; height: auto; border-radius: 5px;"></a>
+                <div>Chemistry</div>
+            </div>
+            <div class="course-card" data-course="Others" style="background: #fff; border: 1px solid #4A90E2; padding: 20px; border-radius: 10px; text-align: center;">
+                <a href="#others"><img src="othr.jpg" alt="Others" style="width: 100%; height: auto; border-radius: 5px;"></a>
+                <div>Others</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Maths Courses Section -->
+    <div id="maths" style="max-width: 800px; margin: auto; padding: 20px;">
+        <h2 style="text-align: center; font-size: 24px;">Maths Courses</h2>
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+            <div class="course-card" data-course="MTH111" onclick="toggleDetails('mth111-details')" style="background: #fff; border: 1px solid #4A90E2; padding: 20px; border-radius: 10px; text-align: center; cursor: pointer;">MTH111</div>
+            <div class="course-card" data-course="MTH112" onclick="toggleDetails('mth112-details')" style="background: #fff; border: 1px solid #4A90E2; padding: 20px; border-radius: 10px; text-align: center; cursor: pointer;">MTH112</div>
+            <div class="course-card" data-course="MTH113" onclick="toggleDetails('mth113-details')" style="background: #fff; border: 1px solid #4A90E2; padding: 20px; border-radius: 10px; text-align: center; cursor: pointer;">MTH113</div>
+            <div class="course-card" data-course="MTH114" onclick="toggleDetails('mth114-details')" style="background: #fff; border: 1px solid #4A90E2; padding: 20px; border-radius: 10px; text-align: center; cursor: pointer;">MTH114</div>
+        </div>
+        
+        <!-- Details for MTH111 -->
+        <div id="mth111-details" style="display: none; margin-top: 20px;">
+            <h3 style="font-size: 20px; font-weight: bold;">MTH111 Resources</h3>
+            <ul>
+                <li>📁 <a href="https://drive.google.com/drive/folders/1METHbwFQDwTA25OL-siINE0A727GXFIV?usp=drive_link" target="_blank">PYQs</a></li>
+                <li>📝 <a href="https://drive.google.com/drive/folders/1Qmq72jdU0XGredBB7BWt6R78v505IoOt?usp=drive_link" target="_blank">Assignments</a></li>
+                <li>📄 <a href="https://drive.google.com/drive/folders/1FCurrQa0e7-lzH7W4FU7qs0IGeO8irzh?usp=drive_link" target="_blank">AM Notes</a></li>
+                <li>📒 <a href="https://drive.google.com/drive/folders/1FCurrQa0e7-lzH7W4FU7qs0IGeO8irzh?usp=drive_link" target="_blank">Class Notes</a></li>
+            </ul>
+        </div>
+
+        <!-- Details for MTH112 -->
+        <div id="mth112-details" style="display: none; margin-top: 20px;">
+            <h3 style="font-size: 20px; font-weight: bold;">MTH112 Resources</h3>
+            <ul>
+                <li>📁 <a href="path/to/mth112_pyqs.pdf" target="_blank">PYQs</a></li>
+                <li>📝 <a href="path/to/mth112_assignments.pdf" target="_blank">Assignments</a></li>
+                <li>📄 <a href="path/to/mth112_am_notes.pdf" target="_blank">AM Notes</a></li>
+                <li>📒 <a href="path/to/mth112_class_notes.pdf" target="_blank">Class Notes</a></li>
+            </ul>
+        </div>
+
+        <!-- Details for MTH113 -->
+        <div id="mth113-details" style="display: none; margin-top: 20px;">
+            <h3 style="font-size: 20px; font-weight: bold;">MTH113 Resources</h3>
+            <ul>
+                <li>📁 <a href="path/to/mth113_pyqs.pdf" target="_blank">PYQs</a></li>
+                <li>📝 <a href="path/to/mth113_assignments.pdf" target="_blank">Assignments</a></li>
+                <li>📄 <a href="path/to/mth113_am_notes.pdf" target="_blank">AM Notes</a></ li>
+                <li>📒 <a href="path/to/mth113_class_notes.pdf" target="_blank">Class Notes</a></li>
+            </ul>
+        </div>
+
+        <!-- Details for MTH114 -->
+        <div id="mth114-details" style="display: none; margin-top: 20px;">
+            <h3 style="font-size: 20px; font-weight: bold;">MTH114 Resources</h3>
+            <ul>
+                <li>📁 <a href="path/to/mth114_pyqs.pdf" target="_blank">PYQs</a></li>
+                <li>📝 <a href="path/to/mth114_assignments.pdf" target="_blank">Assignments</a></li>
+                <li>📄 <a href="path/to/mth114_am_notes.pdf" target="_blank">AM Notes</a></li>
+                <li>📒 <a href="path/to/mth114_class_notes.pdf" target="_blank">Class Notes</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Physics Courses Section -->
+    <div id="physics" style="max-width: 800px; margin: auto; padding: 20px;">
+        <h2 style="text-align: center; font-size: 24px;">Physics Courses</h2>
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+            <div class="course-card" data-course="PHY111" onclick="toggleDetails('phy111-details')" style="background: #fff; border: 1px solid #4A90E2; padding: 20px; border-radius: 10px; text-align: center; cursor: pointer;">PHY111</div>
+            <div class="course-card" data-course="PHY112" onclick="toggleDetails('phy112-details')" style="background: #fff; border: 1px solid #4A90E2; padding: 20px; border-radius: 10px; text-align: center; cursor: pointer;">PHY112</div>
+            <div class="course-card" data-course="PHY113" onclick="toggleDetails('phy113-details')" style="background: #fff; border: 1px solid #4A90E2; padding: 20px; border-radius: 10px; text-align: center; cursor: pointer;">PHY113</div>
+            <div class="course-card" data-course="PHY114" onclick="toggleDetails('phy114-details')" style="background: #fff; border: 1px solid #4A90E2; padding: 20px; border-radius: 10px; text-align: center; cursor: pointer;">PHY114</div>
+            <div class="course-card" data-course="PHY115" onclick="toggleDetails('phy115-details')" style="background: #fff; border: 1px solid #4A90E2; padding: 20px; border-radius: 10px; text-align: center; cursor: pointer;">PHY115</div>
+        </div>
+        
+        <!-- Details for PHY111 -->
+        <div id="phy111-details" style="display: none; margin-top: 20px;">
+            <h3 style="font-size: 20px; font-weight: bold;">PHY111 Resources</h3>
+            <ul>
+                <li>📁 <a href="path/to/phy111_pyqs.pdf" target="_blank">PYQs</a></li>
+                <li>📝 <a href="path/to/phy111_assignments.pdf" target="_blank">Assignments</a></li>
+                <li>📄 <a href="path/to/phy111_am_notes.pdf" target="_blank">AM Notes</a></li>
+                <li>📒 <a href="path/to/phy111_class_notes.pdf" target="_blank">Class Notes</a></li>
+            </ul>
+        </div>
+
+        <!-- Details for PHY112 -->
+        <div id="phy112-details" style="display: none; margin-top: 20px;">
+            <h3 style="font-size: 20px; font-weight: bold;">PHY112 Resources</h3>
+            <ul>
+                <li>📁 <a href="path/to/phy112_pyqs.pdf" target="_blank">PYQs</a></li>
+                <li>📝 <a href="path/to/phy112_assignments.pdf" target="_blank">Assignments</a></li>
+                <li>📄 <a href="path/to/phy112_am_notes.pdf" target="_blank">AM Notes</a></li>
+                <li>📒 <a href="path/to/phy112_class_notes.pdf" target="_blank ">Class Notes</a></li>
+            </ul>
+        </div>
+
+        <!-- Details for PHY113 -->
+        <div id="phy113-details" style="display: none; margin-top: 20px;">
+            <h3 style="font-size: 20px; font-weight: bold;">PHY113 Resources</h3>
+            <ul>
+                <li>📁 <a href="path/to/phy113_pyqs.pdf" target="_blank">PYQs</a></li>
+                <li>📝 <a href="path/to/phy113_assignments.pdf" target="_blank">Assignments</a></li>
+                <li>📄 <a href="path/to/phy113_am_notes.pdf" target="_blank">AM Notes</a></li>
+                <li>📒 <a href="path/to/phy113_class_notes.pdf" target="_blank">Class Notes</a></li>
+            </ul>
+        </div>
+
+        <!-- Details for PHY114 -->
+        <div id="phy114-details" style="display: none; margin-top: 20px;">
+            <h3 style="font-size: 20px; font-weight: bold;">PHY114 Resources</h3>
+            <ul>
+                <li>📁 <a href="path/to/phy114_pyqs.pdf" target="_blank">PYQs</a></li>
+                <li>📝 <a href="path/to/phy114_assignments.pdf" target="_blank">Assignments</a></li>
+                <li>📄 <a href="path/to/phy114_am_notes.pdf" target="_blank">AM Notes</a></li>
+                <li>📒 <a href="path/to/phy114_class_notes.pdf" target="_blank">Class Notes</a></li>
+            </ul>
+        </div>
+
+        <!-- Details for PHY115 -->
+        <div id="phy115-details" style="display: none; margin-top: 20px;">
+            <h3 style="font-size: 20px; font-weight: bold;">PHY115 Resources</h3>
+            <ul>
+                <li>📁 <a href="path/to/phy115_pyqs.pdf" target="_blank">PYQs</a></li>
+                <li>📝 <a href="path/to/phy115_assignments.pdf" target="_blank">Assignments</a></li>
+                <li>📄 <a href="path/to/phy115_am_notes.pdf" target="_blank">AM Notes</a></li>
+                <li>📒 <a href="path/to/phy115_class_notes.pdf" target="_blank">Class Notes</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Chemistry Courses Section -->
+    <div id="chemistry" style="max-width: 800px; margin: auto; padding: 20px;">
+        <h2 style="text-align: center; font-size: 24px;">Chemistry Courses</h2>
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+            <div class="course-card" data-course="CHEM111" onclick="toggleDetails('chem111-details')" style="background: #fff; border: 1px solid #4A90E2; padding: 20px; border-radius: 10px; text-align: center; cursor: pointer;">CHM111</div>
+            <div class="course-card" data-course="CHEM112" onclick="toggleDetails('chem112-details')" style="background: #fff; border: 1px solid #4A90E2; padding: 20px; border-radius: 10px; text-align: center; cursor: pointer;">CHM112</div>
+            <div class="course-card" data-course="CHEM113" onclick="toggleDetails('chem113-details')" style="background: #fff; border: 1px solid #4A90E2; padding: 20px; border-radius: 10px; text-align: center; cursor: pointer;">CHM113</div>
+            
+        </div>
+        
+        <!-- Details for CHEM111 -->
+        <div id="chem111-details" style="display: none; margin-top: 20px;">
+            <h3 style="font-size: 20px; font-weight: bold;">CHM111 Resources</h3>
+            <ul>
+                <li>📁 <a href="path /to/chem111_pyqs.pdf" target="_blank">PYQs</a></li>
+                <li>📝 <a href="path/to/chem111_assignments.pdf" target="_blank">Assignments</a></li>
+                <li>📄 <a href="path/to/chem111_am_notes.pdf" target="_blank">AM Notes</a></li>
+                <li>📒 <a href="path/to/chem111_class_notes.pdf" target="_blank">Class Notes</a></li>
+            </ul>
+        </div>
+
+        <!-- Details for CHEM112 -->
+        <div id="chem112-details" style="display: none; margin-top: 20px;">
+            <h3 style="font-size: 20px; font-weight: bold;">CHM112 Resources</h3>
+            <ul>
+                <li>📁 <a href="path/to/chem112_pyqs.pdf" target="_blank">PYQs</a></li>
+                <li>📝 <a href="path/to/chem112_assignments.pdf" target="_blank">Assignments</a></li>
+                <li>📄 <a href="path/to/chem112_am_notes.pdf" target="_blank">AM Notes</a></li>
+                <li>📒 <a href="path/to/chem112_class_notes.pdf" target="_blank">Class Notes</a></li>
+            </ul>
+        </div>
+
+        <!-- Details for CHEM113 -->
+        <div id="chem113-details" style="display: none; margin-top: 20px;">
+            <h3 style="font-size: 20px; font-weight: bold;">CHM113 Resources</h3>
+            <ul>
+                <li>📁 <a href="path/to/chem113_pyqs.pdf" target="_blank">PYQs</a></li>
+                <li>📝 <a href="path/to/chem113_assignments.pdf" target="_blank">Assignments</a></li>
+                <li>📄 <a href="path/to/chem113_am_notes.pdf" target="_blank">AM Notes</a></li>
+                <li>📒 <a href="path/to/chem113_class_notes.pdf" target="_blank">Class Notes</a></li>
+            </ul>
+        </div>
+
+        
+    </div>
+
+    <!-- Other Courses Section -->
+    <div id="others" style="max-width: 800px; margin: auto; padding: 20px;">
+        <h2 style="text-align: center; font-size: 24px;">Other Courses</h2>
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+            <div class="course-card" data-course="TA111" onclick="toggleDetails('ta111-details')" style="background: #fff; border: 1px solid #4A90E2; padding: 20px; border-radius: 10px; text-align: center; cursor: pointer;">TA111</div>
+            <div class="course-card" data-course="LIF111" onclick="toggleDetails('lif111-details')" style="background: #fff; border: 1px solid #4A90E2; padding: 20px; border-radius: 10px; text-align: center; cursor: pointer;">LIF111</div>
+            <div class="course-card" data-course="ELC111" onclick="toggleDetails('elc111-details')" style="background: #fff; border: 1px solid #4A90E2; padding: 20px; border-radius: 10px; text-align: center; cursor: pointer;">ELC111</div>
+            <div class="course-card" data-course="ELC112" onclick="toggleDetails('elc112-details')" style="background: #fff; border: 1px solid #4A90E2; padding: 20px; border-radius: 10px; text-align: center; cursor: pointer;">ELC112</div>
+            <div class="course-card" data-course="ELC113" onclick="toggleDetails('elc113-details')" style="background: #fff; border: 1px solid #4A90E2; padding: 20px; border-radius: 10px; text-align: center; cursor: pointer;">ELC113</div>
+            <div class="course-card" data-course="ESC111" onclick="toggleDetails('esc111-details')" style="background: #fff; border: 1px solid #4A90E2; padding: 20px; border-radius: 10px; text-align: center; cursor: pointer;">ESC111</div>
+            <div class="course-card" data-course="ESC112" onclick="toggleDetails('esc112-details')" style="background: #fff; border: 1px solid #4A90E2; padding: 20px; border-radius: 10px; text-align: center; cursor: pointer;">ESC112</div>
+            <div class="course-card" data-course="ESC113" onclick="toggleDetails('esc113-details')" style="background: #fff; border: 1px solid #4A90E2; padding: 20px; border-radius: 10px; text-align: center; cursor: pointer;">ESC113</div>
+        </div>
+        
+        <!-- Details for TA111 -->
+        <div id="ta111-details" style="display: none; margin-top: 20px;">
+            <h3 style="font-size: 20px; font-weight: bold;">TA111 Resources</h3>
+            <ul>
+                <li>📁 <a href="path/to/ta111_pyqs.pdf" target="_blank">PYQs</a></li>
+                <li>📝 <a href="path/to/ta111_assignments.pdf" target="_blank">Assignments</a></li>
+                <li>📄 <a href="path/to/ta111_am_notes.pdf" target="_blank">AM Notes</a></li>
+                <li>📒 <a href="path/to/ta111_class_notes.pdf" target="_blank">Class Notes</a></li>
+            </ul>
+        </div>
+
+        <!-- Details for LIF111 -->
+        <div id="lif111-details" style="display: none; margin-top: 20px;">
+            <h3 style="font-size: 20px; font-weight: bold;">LIF111 Resources</h3>
+            <ul>
+                <li>📁 <a href="path/to/lif111_pyqs.pdf" target="_blank">PYQs</a></li>
+                <li>📝 <a href="path/to/lif111_assignments.pdf" target="_blank">Assignments</a></li>
+                <li>📄 <a href="path/to/lif111_am_notes.pdf" target="_blank">AM Notes</a></li>
+                <li>📒 <a href="path/to/lif111_class_notes.pdf" target="_blank">Class Notes</a></li>
+            </ul>
+        </div>
+
+        <!-- Details for ELC111 -->
+        <div id="elc111-details" style="display: none; margin-top: 20px;">
+            <h3 style="font-size: 20px; font-weight: bold;">ELC111 Resources</h3>
+            <ul>
+                <li>📁 <a href="path/to/elc111_pyqs.pdf" target="_blank">PYQs</a></li>
+                <li>📝 <a href="path/to/elc111_assignments.pdf" target="_blank">Assignments</a></li>
+                <li>📄 <a href="path/to/elc111_am_notes.pdf" target="_blank">AM Notes</a></li>
+                <li>📒 <a href="path/to/elc111_class_notes.pdf" target="_blank">Class Notes</a></li>
+            </ul>
+        </div>
+
+        <!-- Details for ELC112 -->
+        <div id="elc112-details" style="display: none; margin-top: 20px;">
+            <h3 style="font-size: 20px; font-weight: bold;">ELC112 Resources</h3>
+            <ul>
+                <li>📁 <a href="path/to/elc112_pyqs.pdf" target="_blank">PYQs</a></li>
+                <li>📝 <a href="path/to/elc112_assignments.pdf" target="_blank">Assignments</a></li>
+                <li>📄 <a href="path/to/elc112_am_notes.pdf" target="_blank">AM Notes</a></ ```html
+                </li>
+                <li>📒 <a href="path/to/elc112_class_notes.pdf" target="_blank">Class Notes</a></li>
+            </ul>
+        </div>
+
+        <!-- Details for ELC113 -->
+        <div id="elc113-details" style="display: none; margin-top: 20px;">
+            <h3 style="font-size: 20px; font-weight: bold;">ELC113 Resources</h3>
+            <ul>
+                <li>📁 <a href="path/to/elc113_pyqs.pdf" target="_blank">PYQs</a></li>
+                <li>📝 <a href="path/to/elc113_assignments.pdf" target="_blank">Assignments</a></li>
+                <li>📄 <a href="path/to/elc113_am_notes.pdf" target="_blank">AM Notes</a></li>
+                <li>📒 <a href="path/to/elc113_class_notes.pdf" target="_blank">Class Notes</a></li>
+            </ul>
+        </div>
+
+        <!-- Details for ESC111 -->
+        <div id="esc111-details" style="display: none; margin-top: 20px;">
+            <h3 style="font-size: 20px; font-weight: bold;">ESC111 Resources</h3>
+            <ul>
+                <li>📁 <a href="path/to/esc111_pyqs.pdf" target="_blank">PYQs</a></li>
+                <li>📝 <a href="path/to/esc111_assignments.pdf" target="_blank">Assignments</a></li>
+                <li>📄 <a href="path/to/esc111_am_notes.pdf" target="_blank">AM Notes</a></li>
+                <li>📒 <a href="path/to/esc111_class_notes.pdf" target="_blank">Class Notes</a></li>
+            </ul>
+        </div>
+
+        <!-- Details for ESC112 -->
+        <div id="esc112-details" style="display: none; margin-top: 20px;">
+            <h3 style="font-size: 20px; font-weight: bold;">ESC112 Resources</h3>
+            <ul>
+                <li>📁 <a href="path/to/esc112_pyqs.pdf" target="_blank">PYQs</a></li>
+                <li>📝 <a href="path/to/esc112_assignments.pdf" target="_blank">Assignments</a></li>
+                <li>📄 <a href="path/to/esc112_am_notes.pdf" target="_blank">AM Notes</a></li>
+                <li>📒 <a href="path/to/esc112_class_notes.pdf" target="_blank">Class Notes</a></li>
+            </ul>
+        </div>
+
+        <!-- Details for ESC113 -->
+        <div id="esc113-details" style="display: none; margin-top: 20px;">
+            <h3 style="font-size: 20px; font-weight: bold;">ESC113 Resources</h3>
+            <ul>
+                <li>📁 <a href="path/to/esc113_pyqs.pdf" target="_blank">PYQs</a></li>
+                <li>📝 <a href="path/to/esc113_assignments.pdf" target="_blank">Assignments</a></li>
+                <li>📄 <a href="path/to/esc113_am_notes.pdf" target="_blank">AM Notes</a></li>
+                <li>📒 <a href="path/to/esc113_class_notes.pdf" target="_blank">Class Notes</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+```
